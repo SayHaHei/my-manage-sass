@@ -8,7 +8,9 @@
         <common-header></common-header>
       </el-header>
       <common-tab></common-tab>
-      <el-main></el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
