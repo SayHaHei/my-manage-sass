@@ -96,7 +96,10 @@ export default {
   methods: {
     clickMenu(item) {
       console.log(item.name);
-      this.$router.push({ name: item.name });
+      this.$router.push({ name: item.name }).catch(err => {
+        err;
+      });
+      this.$store.commit("selectMenu", item);
     }
   }
 };
