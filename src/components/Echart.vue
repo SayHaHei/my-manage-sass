@@ -108,7 +108,6 @@ export default {
   watch: {
     chartData: {
       handler: function() {
-        console.log("handler");
         this.initChart();
       },
       deep: true
