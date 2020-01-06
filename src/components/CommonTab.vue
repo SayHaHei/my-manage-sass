@@ -2,16 +2,16 @@
   <div class="tabs">
     <el-tag
       size="small"
-      v-for="tag in tags"
+      v-for="(tag, index) in tags"
       :key="tag.name"
       :closable="tag.name !== 'home'"
       :type="tag.type"
       :disable-transitions="false"
-      @close="handleClose(tag)"
+      @close="handleClose(tag, index)"
       @click="changeMenu(tag)"
       :effect="$route.name === tag.name ? 'dark' : 'plain'"
     >
-      {{ tag.name }}
+      {{ tag.label }}
     </el-tag>
   </div>
 </template>
@@ -28,8 +28,18 @@ export default {
     ...mapMutations({
       close: "closeTab"
     }),
-    handleClose(tag) {
+    handleClose(tag, index) {
+      let length = this.tags.length - 1;
       this.close(tag);
+      if(tag.name !== this.$route.name){
+          return
+      }
+      /* 如果是最右边，则往左跳；如果是最左边，则往右跳 */
+      if(index === length){
+          this.$router.push({name: this.tags[index-1].name})
+      }else{
+          this.$router.push({name: this.tags[index].name});
+      }
     },
     changeMenu(item) {
       this.$router.push({ name: item.name });
