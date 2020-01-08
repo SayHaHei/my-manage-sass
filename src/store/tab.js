@@ -25,7 +25,6 @@ export default {
     closeTab(state, tag) {
       let result = state.tabList.findIndex(item => item.name === tag.name);
       state.tabList.splice(result, 1);
-      
     }
   }
 };

@@ -31,14 +31,14 @@ export default {
     handleClose(tag, index) {
       let length = this.tags.length - 1;
       this.close(tag);
-      if(tag.name !== this.$route.name){
-          return
+      if (tag.name !== this.$route.name) {
+        return;
       }
       /* 如果是最右边，则往左跳；如果是最左边，则往右跳 */
-      if(index === length){
-          this.$router.push({name: this.tags[index-1].name})
-      }else{
-          this.$router.push({name: this.tags[index].name});
+      if (index === length) {
+        this.$router.push({ name: this.tags[index - 1].name });
+      } else {
+        this.$router.push({ name: this.tags[index].name });
       }
     },
     changeMenu(item) {
