@@ -30,6 +30,7 @@
       </el-table-column>
     </el-table>
     <el-pagination
+      class="pager"
       layout="prev, pager, next"
       :total="config.total"
       :current-page.sync="config.page"
@@ -50,6 +51,12 @@ export default {
   methods: {
     changePage(page) {
       this.$emit("changePage", page);
+    },
+    handleEdit(row) {
+      console.log("edit", row);
+    },
+    handleDelete(row) {
+      console.log("delete", row);
     }
   }
 };
@@ -58,5 +65,11 @@ export default {
 <style lang="scss" scoped>
 .common-table {
   height: 100%;
+  position: relative;
+  .pager {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+  }
 }
 </style>

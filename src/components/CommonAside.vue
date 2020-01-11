@@ -44,11 +44,13 @@
 export default {
   computed: {
     hasChildren() {
-      console.log(this.asideMenu.filter(item => item.children));
-      return this.asideMenu.filter(item => item.children);
+      return this.menu.filter(item => item.children);
     },
     noChildren() {
-      return this.asideMenu.filter(item => !item.children);
+      return this.menu.filter(item => !item.children);
+    },
+    menu() {
+      return this.$store.state.tab.menu;
     }
   },
   data() {

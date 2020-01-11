@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     getUserList() {
+      this.config.loading = true;
       this.$http
         .get("/api/user/getUser", {
           params: {
@@ -40,6 +41,7 @@ export default {
         })
         .then(res => {
           let data = res.data;
+          console.log("=======", this.config);
           if (data.code == 20000) {
             this.tableData = data.list.map(item => {
               item.sexLabel = item.sex == 0 ? "女" : "男";

@@ -8,7 +8,8 @@ export default {
         icon: "home"
       }
     ],
-    currentMenu: null
+    currentMenu: null,
+    menu:[]
   },
   mutations: {
     selectMenu(state, val) {
