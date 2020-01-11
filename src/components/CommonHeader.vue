@@ -20,7 +20,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -39,6 +39,13 @@ export default {
     return {
       userImg: require("../assets/images/user.png")
     };
+  },
+  methods: {
+    logout() {
+      this.$store.commit("clearToken");
+      this.$store.commit("clearMenu");
+      location.reload();
+    }
   }
 };
 </script>
